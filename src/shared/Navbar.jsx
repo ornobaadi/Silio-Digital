@@ -23,7 +23,7 @@ const Navbar = () => {
                         <a className="btn btn-ghost text-xl">Silio Digital</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 text-lg">
+                        <ul className="menu menu-horizontal px-1 text-md">
                             {links}
                         </ul>
                     </div>
