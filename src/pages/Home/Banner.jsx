@@ -1,4 +1,6 @@
 import React from 'react';
+import agency from "/public/agency.json";
+import Lottie from 'lottie-react';
 
 const Banner = () => {
     return (
@@ -11,6 +13,7 @@ const Banner = () => {
                         We help businesses thrive with stunning designs, strategic marketing, and seamless development. From logo creation to full-scale web solutions, we bring your vision to life.
                         </p>
                         <button className="btn btn-primary">Get Started</button>
+                        <Lottie animationData={agency} loop={true} />
                     </div>
                 </div>
             </div>
