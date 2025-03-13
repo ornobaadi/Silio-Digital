@@ -1,45 +1,152 @@
 import React from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
-import { FaSquareWhatsapp } from 'react-icons/fa6';
+import { FaWhatsapp, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    // Framer Motion variants
+    const containerVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: 'easeInOut' },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: 'easeInOut' },
+        },
+    };
+
     return (
-        <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
-            <aside>
-                <svg
-                    width="50"
-                    height="50"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    class="fill-current">
-                    <path
-                        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-                </svg>
-                <p>
-                    Silio Digital Agency
-                </p>
-            </aside>
-            <nav>
-                <h6 className="footer-title">Social</h6>
-                <div className="grid grid-flow-col gap-4">
-                    <a>
-                        <Link to="https://wa.me/+8801646846514?text=Hello%20there!%20I%20would%20like%20to%20discuss%20about%20a%20Project." className='flex items-center gap-2 hover:text-green-400'>
-                            <FaWhatsapp className='text-2xl' />
-                            <p className='text-xl'>Whatsapp</p>
+        <motion.footer
+            initial="hidden"
+            whileInView="visible"
+            variants={containerVariants}
+            viewport={{ once: true }}
+            className="bg-black/95 text-white py-12 backdrop-blur-md border-t border-white/10"
+        >
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    {/* Brand Section */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex flex-col items-start"
+                    >
+                        <Link to="/" className="flex items-center gap-2">
+                            <img
+                                src="/logo.png" // Replace with your logo
+                                alt="Silio Digital Logo"
+                                className="w-10 h-10"
+                            />
+                            <span className="text-xl font-bold text-white">
+                                Silio Digital
+                            </span>
                         </Link>
-                    </a>
-                    <a>
+                        <p className="mt-4 text-white/70">
+                            Empowering your digital presence
+                        </p>
+                    </motion.div>
 
-                    </a>
-                    <a>
+                    {/* Quick Links */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex flex-col items-start"
+                    >
+                        <h6 className="text-lg font-semibold mb-4">Quick Links</h6>
+                        <div className='flex flex-col gap-3'>
+                            <Link to="/" className="text-white/70 hover:text-green-500 transition-colors">
+                                Home
+                            </Link>
+                            <Link to="/about" className="text-white/70 hover:text-green-500 transition-colors">
+                                About
+                            </Link>
+                            <Link to="/services" className="text-white/70 hover:text-green-500 transition-colors">
+                                Services
+                            </Link>
+                            <Link to="/contact" className="text-white/70 hover:text-green-500 transition-colors">
+                                Contact
+                            </Link>
+                        </div>
+                    </motion.div>
 
-                    </a>
+                    {/* Social Links */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex flex-col items-start"
+                    >
+                        <h6 className="text-lg font-semibold mb-4">Social</h6>
+                        <div className="flex flex-col gap-3">
+                            <a
+                                href="https://wa.me/+8801646846514?text=Hello%20there!%20I%20would%20like%20to%20discuss%20about%20a%20Project."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                            >
+                                <FaWhatsapp className="text-xl" />
+                                <span>WhatsApp</span>
+                            </a>
+                            <a
+                                href="https://linkedin.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                            >
+                                <FaLinkedin className="text-xl" />
+                                <span>LinkedIn</span>
+                            </a>
+                            <a
+                                href="https://instagram.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                            >
+                                <FaInstagram className="text-xl" />
+                                <span>Instagram</span>
+                            </a>
+                            <a
+                                href="https://twitter.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                            >
+                                <FaTwitter className="text-xl" />
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    {/* Contact Info */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex flex-col items-start"
+                    >
+                        <h6 className="text-lg font-semibold mb-4">Contact</h6>
+                        <p className="text-white/70">Email: info@silio.com</p>
+                        <p className="text-white/70">Phone: +880 1646 846514</p>
+                        <p className="text-white/70">
+                            Address: 123 Dhaka, Bangladesh
+                        </p>
+                    </motion.div>
                 </div>
-            </nav>
-        </footer>
+
+                {/* Copyright Section */}
+                <motion.div
+                    variants={itemVariants}
+                    className="border-t border-white/10 mt-8 pt-8 text-center text-white/70"
+                >
+                    <p>
+                        &copy; {new Date().getFullYear()} Silio Digital. All
+                        rights reserved.
+                    </p>
+                </motion.div>
+            </div>
+        </motion.footer>
     );
 };
 

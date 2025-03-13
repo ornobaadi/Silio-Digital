@@ -4,8 +4,8 @@ import Lottie from 'lottie-react';
 
 const Banner = () => {
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
+        <div className='h-screen w-full'>
+            <div className="hero py-40">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
                         <h1 className="text-5xl font-bold">Empowering Your <br /> Digital Presence</h1>
