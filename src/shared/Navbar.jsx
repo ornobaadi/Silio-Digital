@@ -86,7 +86,6 @@ const Navbar = () => {
 
                 <div className="navbar-end">
                     <motion.div
-                        variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
                     >

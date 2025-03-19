@@ -2,11 +2,12 @@ import React from 'react';
 import { FaWhatsapp, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { BsFillTriangleFill } from 'react-icons/bs';
 
 const Footer = () => {
     // Framer Motion variants
     const containerVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 50, y: 0 },
         visible: {
             opacity: 1,
             y: 0,
@@ -39,11 +40,7 @@ const Footer = () => {
                         className="flex flex-col items-start"
                     >
                         <Link to="/" className="flex items-center gap-2">
-                            <img
-                                src="/logo.png" // Replace with your logo
-                                alt="Silio Digital Logo"
-                                className="w-10 h-10"
-                            />
+                            <BsFillTriangleFill className="text-emerald-600 text-2xl" />
                             <span className="text-xl font-bold text-white">
                                 Silio Digital
                             </span>
@@ -95,7 +92,7 @@ const Footer = () => {
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                                className="flex items-center gap-2 text-white/70 hover:text-indigo-400 transition-colors"
                             >
                                 <FaLinkedin className="text-xl" />
                                 <span>LinkedIn</span>
@@ -104,7 +101,7 @@ const Footer = () => {
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                                className="flex items-center gap-2 text-white/70 hover:text-pink-500 transition-colors"
                             >
                                 <FaInstagram className="text-xl" />
                                 <span>Instagram</span>
@@ -113,7 +110,7 @@ const Footer = () => {
                                 href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 text-white/70 hover:text-green-500 transition-colors"
+                                className="flex items-center gap-2 text-white/70 hover:text-blue-400 transition-colors"
                             >
                                 <FaTwitter className="text-xl" />
                                 <span>Twitter</span>
@@ -127,8 +124,8 @@ const Footer = () => {
                         className="flex flex-col items-start"
                     >
                         <h6 className="text-lg font-semibold mb-4">Contact</h6>
-                        <p className="text-white/70">Email: info@silio.com</p>
-                        <p className="text-white/70">Phone: +880 1646 846514</p>
+                        <Link to="mailto:siliodigitalagency@gmail.com" className="text-white/70 hover:text-emerald-500 transition-colors">Email: siliodigitalagency@gmail.com</Link>
+                        <Link to="tel:+8801646846514" className="text-white/70 hover:text-blue-400 transition-colors">Phone: +880 1646 846514</Link>
                         <p className="text-white/70">
                             Address: 123 Dhaka, Bangladesh
                         </p>
