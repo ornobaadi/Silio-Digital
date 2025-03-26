@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 
 const Banner = () => {
     return (
-        <div className='h-screen w-full'>
+        <section id='home' className='h-screen w-full'>
             <div className="hero py-40">
                 <div className="hero-content text-center">
                     <div className="max-w-2xl">
@@ -17,7 +17,7 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

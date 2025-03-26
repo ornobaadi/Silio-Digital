@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsFillTriangleFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     // Framer Motion variants for animations
     const containerVariants = {
         hidden: { opacity: 0, y: -20 },
@@ -24,19 +25,66 @@ const Navbar = () => {
         tap: { scale: 0.95 },
     };
 
+    const scrollToSection = (id) => {
+        if (id === 'home') {
+            // Special handling for home section
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80; // Adjust this value based on your navbar height
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+        setIsMobileMenuOpen(false);
+    };
+
     const links = (
         <>
             <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-                <Link className="text-gray-300 hover:text-green-500 transition-all duration-200">Home</Link>
+                <a 
+                    href="#home" 
+                    onClick={(e) => { e.preventDefault(); scrollToSection("home"); }} 
+                    className="text-gray-300 hover:text-green-500 transition-all duration-200"
+                >
+                    Home
+                </a>
             </motion.div>
             <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-                <Link className="text-gray-300 hover:text-green-500 transition-all duration-200">About</Link>
+                <a 
+                    href="#about" 
+                    onClick={(e) => { e.preventDefault(); scrollToSection("about"); }} 
+                    className="text-gray-300 hover:text-green-500 transition-all duration-200"
+                >
+                    About
+                </a>
             </motion.div>
             <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-                <Link className="text-gray-300 hover:text-green-500 transition-all duration-200">Services</Link>
+                <a 
+                    href="#services" 
+                    onClick={(e) => { e.preventDefault(); scrollToSection("services"); }} 
+                    className="text-gray-300 hover:text-green-500 transition-all duration-200"
+                >
+                    Services
+                </a>
             </motion.div>
             <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
-                <Link className="text-gray-300 hover:text-green-500 transition-all duration-200">Contact</Link>
+                <a 
+                    href="#contact" 
+                    onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} 
+                    className="text-gray-300 hover:text-green-500 transition-all duration-200"
+                >
+                    Contact
+                </a>
             </motion.div>
         </>
     );
@@ -51,7 +99,12 @@ const Navbar = () => {
             <div className="w-full max-w-6xl inline-flex justify-between items-center bg-black/70 p-6 py-4 rounded-2xl shadow-md backdrop-blur-md border border-white/10">
                 <div className="navbar-start">
                     <div className="dropdown lg:hidden">
-                        <div tabIndex={0} role="button" className="btn btn-ghost">
+                        <div 
+                            tabIndex={0} 
+                            role="button" 
+                            className="btn btn-ghost"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5 text-white"
@@ -67,17 +120,19 @@ const Navbar = () => {
                                 />
                             </svg>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-black/70 rounded-box z-10 mt-3 w-52 p-2 shadow border border-white/10"
-                        >
-                            {links}
-                        </ul>
+                        {isMobileMenuOpen && (
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-black/70 rounded-box z-10 mt-3 w-52 p-2 shadow border border-white/10"
+                            >
+                                {links}
+                            </ul>
+                        )}
                     </div>
-                    <Link to="/" className="text-xl font-bold flex items-center gap-3 text-white">
+                    <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection("home"); }} className="text-xl font-bold flex items-center gap-3 text-white">
                         <BsFillTriangleFill className="text-emerald-600 text-2xl" />
                         Silio Digital
-                    </Link>
+                    </a>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
@@ -86,10 +141,15 @@ const Navbar = () => {
 
                 <div className="navbar-end">
                     <motion.div
+                        variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
                     >
-                        <Link className="px-6 py-2 bg-purple-500 text-white font-medium rounded-lg transition-all duration-200 hover:bg-purple-600 flex items-center gap-2">
+                        <a 
+                            href="#contact" 
+                            onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
+                            className="px-6 py-2 bg-purple-500 text-white font-medium rounded-lg transition-all duration-200 hover:bg-purple-600 flex items-center gap-2"
+                        >
                             <span>Get Started</span>
                             <motion.svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +170,7 @@ const Navbar = () => {
                                     clipRule="evenodd"
                                 />
                             </motion.svg>
-                        </Link>
+                        </a>
                     </motion.div>
                 </div>
             </div>
