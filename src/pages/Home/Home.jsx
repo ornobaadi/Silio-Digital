@@ -1,14 +1,15 @@
 import React from 'react';
-import Banner from './Banner';
-import About from './Services';
 import { HeroGeometric } from '@/components/ui/shape-landing-hero';
 import CTA from './CTA';
 import Contact from './Contact';
+import Services from './Services';
+import About from './About';
 const Home = () => {
     return (
         <div>
             <HeroGeometric />
             <About />
+            <Services />
             <Contact />
             <CTA />
         </div>
