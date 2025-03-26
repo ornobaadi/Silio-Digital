@@ -80,7 +80,7 @@ const Services = () => {
                     </motion.p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
                     <ServiceCard
                         number="01"
                         title="Logo Design & Branding"
