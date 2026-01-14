@@ -1,0 +1,15 @@
+# Robots.txt for Silio Digital Portfolio
+# Allow all crawlers access to all pages
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://siliodigital.com/sitemap.xml
+
+# Crawl-delay (optional, in seconds)
+# Crawl-delay: 1

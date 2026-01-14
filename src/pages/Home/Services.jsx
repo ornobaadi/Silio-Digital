@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
-const ServiceCard = ({ number, title, description, points, color }) => {
+const ServiceCard = ({ number, title, description, points }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -10,34 +10,34 @@ const ServiceCard = ({ number, title, description, points, color }) => {
             whileHover={{ y: -5 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
             viewport={{ once: true }}
-            className="group bg-black/50 border border-white/10 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all backdrop-blur-md"
+            className="group bg-white/5 border border-white/10 rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-emerald-500/30 transition-all backdrop-blur-sm"
         >
             <div className="p-6">
                 <div className="flex items-start gap-4 mb-4">
                     <span
-                        className={`text-sm font-mono font-bold text-white ${color} px-2 py-1 rounded`}
+                        className="text-sm font-mono font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded"
                     >
                         {number}
                     </span>
-                    <h3 className="text-xl font-bold text-white group-hover:text-green-500 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
                         {title}
                     </h3>
                 </div>
-                <p className="text-white/70 mb-4">{description}</p>
+                <p className="text-white/70 mb-4 text-sm leading-relaxed">{description}</p>
                 <ul className="space-y-2">
                     {points.map((point, index) => (
                         <li
                             key={index}
                             className="flex items-center gap-2 text-sm text-white/80"
                         >
-                            <CheckCircle className="w-4 h-4 text-green-500" />
+                            <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
                             {point}
                         </li>
                     ))}
                 </ul>
             </div>
             <div
-                className={`h-1 w-full ${color} opacity-70 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300`}
+                className="h-1 w-full bg-emerald-500 opacity-70 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
             ></div>
         </motion.div>
     );
@@ -58,7 +58,7 @@ const Services = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="inline-block bg-white/10 text-purple-500 uppercase text-sm font-bold px-4 py-2 rounded-full mb-4"
+                        className="inline-block bg-white/10 text-emerald-500 uppercase text-sm font-bold px-4 py-2 rounded-full mb-4"
                     >
                         What we offer
                     </motion.span>
@@ -74,7 +74,7 @@ const Services = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
-                        className="text-white/60 max-w-3xl mx-auto text-lg"
+                        className="text-white/60 max-w-2xl mx-auto text-lg"
                     >
                         Unlock your business potential with our expert services.
                     </motion.p>
@@ -90,7 +90,6 @@ const Services = () => {
                             'Brand Guidelines & Visual Identity',
                             'Business Cards & Marketing Materials',
                         ]}
-                        color="bg-blue-500"
                     />
 
                     <ServiceCard
@@ -102,7 +101,6 @@ const Services = () => {
                             'SEO Optimization',
                             'Content Marketing',
                         ]}
-                        color="bg-purple-500"
                     />
 
                     <ServiceCard
@@ -114,19 +112,17 @@ const Services = () => {
                             'SaaS & Web Applications',
                             'UI/UX Optimization',
                         ]}
-                        color="bg-pink-500"
                     />
 
                     <ServiceCard
                         number="04"
-                        title="WordPress & Shopify Store Management"
+                        title="WordPress & Shopify"
                         description="We manage your online store for smooth operation."
                         points={[
                             'Shopify & WooCommerce Setup',
                             'Performance Optimization',
                             'Ongoing Maintenance & Support',
                         ]}
-                        color="bg-yellow-500"
                     />
 
                     <ServiceCard
@@ -138,7 +134,6 @@ const Services = () => {
                             'Ad Account Setup',
                             'Team Member Access Management',
                         ]}
-                        color="bg-indigo-500"
                     />
 
                     <ServiceCard
@@ -150,7 +145,6 @@ const Services = () => {
                             'Ad Creative Design',
                             'Targeting & Audience Segmentation',
                         ]}
-                        color="bg-teal-500"
                     />
 
                     <ServiceCard
@@ -162,7 +156,6 @@ const Services = () => {
                             'A/B Testing & Optimization',
                             'Budget Management',
                         ]}
-                        color="bg-orange-500"
                     />
 
                     <ServiceCard
@@ -174,11 +167,10 @@ const Services = () => {
                             'Custom Event Tracking',
                             'Conversion Tracking Setup',
                         ]}
-                        color="bg-red-500"
                     />
 
                     <ServiceCard
-                        number="9"
+                        number="09"
                         title="Social Media Management"
                         description="Engage your audience with consistent and impactful content."
                         points={[
@@ -186,7 +178,6 @@ const Services = () => {
                             'Post Scheduling & Publishing',
                             'Community Engagement',
                         ]}
-                        color="bg-cyan-500"
                     />
                 </div>
             </div>

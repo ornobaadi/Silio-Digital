@@ -35,16 +35,16 @@ const Navbar = () => {
     };
 
     const buttonVariants = {
-        hover: { scale: 1.05, backgroundColor: '#7C3AED' },
+        hover: { scale: 1.05 },
         tap: { scale: 0.95 },
     };
 
     const mobileMenuVariants = {
         hidden: { opacity: 0, y: -20 },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             y: 0,
-            transition: { 
+            transition: {
                 staggerChildren: 0.1,
                 delayChildren: 0.2,
                 when: "beforeChildren"
@@ -67,7 +67,7 @@ const Navbar = () => {
                 const offset = 80;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offset;
-                
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
@@ -92,12 +92,11 @@ const Navbar = () => {
             className="flex justify-center p-5 fixed w-full z-50"
         >
             {/* Floating Navbar Container */}
-            <div className={`w-full max-w-6xl inline-flex justify-between items-center p-6 py-4 rounded-2xl shadow-md backdrop-blur-md border border-white/10 transition-all duration-300 ${
-                scrolled ? 'bg-black/80' : 'bg-black/70'
-            }`}>
+            <div className={`w-full max-w-6xl inline-flex justify-between items-center p-6 py-4 rounded-2xl shadow-md backdrop-blur-md border border-white/10 transition-all duration-300 ${scrolled ? 'bg-black/80' : 'bg-black/70'
+                }`}>
                 {/* Logo */}
-                <motion.a 
-                    href="#home" 
+                <motion.a
+                    href="#home"
                     onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}
                     className="flex items-center gap-2"
                     whileHover={{ scale: 1.05 }}
@@ -111,13 +110,13 @@ const Navbar = () => {
                 <div className="hidden lg:flex items-center justify-center flex-grow">
                     <ul className="flex gap-6">
                         {navLinks.map((link) => (
-                            <motion.li 
+                            <motion.li
                                 key={link.id}
                                 variants={linkVariants}
                                 whileHover="hover"
                                 whileTap="tap"
                             >
-                                <a 
+                                <a
                                     href={`#${link.id}`}
                                     onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
                                     className="text-gray-300 hover:text-green-500 transition-colors duration-200 text-sm sm:text-base"
@@ -136,10 +135,10 @@ const Navbar = () => {
                         whileHover="hover"
                         whileTap="tap"
                     >
-                        <a 
-                            href="#contact" 
+                        <a
+                            href="#contact"
                             onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
-                            className="px-4 py-2 sm:px-6 sm:py-2 bg-purple-500 text-white font-medium rounded-lg transition-all duration-200 hover:bg-purple-600 flex items-center gap-2 text-sm sm:text-base"
+                            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:bg-emerald-600 flex items-center gap-2 text-sm sm:text-base border border-white/10"
                         >
                             <span>Get Started</span>
                             <motion.svg
@@ -174,10 +173,10 @@ const Navbar = () => {
                         whileTap="tap"
                         className="hidden sm:block"
                     >
-                        <a 
-                            href="#contact" 
+                        <a
+                            href="#contact"
                             onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
-                            className="px-4 py-2 bg-purple-500 text-white font-medium rounded-lg transition-all duration-200 hover:bg-purple-600 flex items-center gap-2 text-sm"
+                            className="px-4 py-2 bg-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:bg-emerald-600 flex items-center gap-2 text-sm border border-white/10"
                         >
                             <span>Get Started</span>
                             <svg
@@ -196,7 +195,7 @@ const Navbar = () => {
                     </motion.div>
 
                     {/* Mobile Menu Button */}
-                    <button 
+                    <button
                         className="p-2 text-white focus:outline-none"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
@@ -217,7 +216,7 @@ const Navbar = () => {
             {/* Mobile Menu - Floating Glass Panel */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div 
+                    <motion.div
                         initial="hidden"
                         animate="visible"
                         exit="exit"
@@ -226,16 +225,16 @@ const Navbar = () => {
                     >
                         <motion.ul className="flex flex-col gap-3">
                             {navLinks.map((link) => (
-                                <motion.li 
+                                <motion.li
                                     key={link.id}
                                     variants={mobileLinkVariants}
                                     className="border-b border-white/10 last:border-0 pb-3 last:pb-0"
                                 >
-                                    <a 
+                                    <a
                                         href={`#${link.id}`}
-                                        onClick={(e) => { 
-                                            e.preventDefault(); 
-                                            scrollToSection(link.id); 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection(link.id);
                                         }}
                                         className="text-white text-lg font-medium hover:text-green-500 transition-colors duration-200 block py-2"
                                     >
@@ -250,10 +249,10 @@ const Navbar = () => {
                             variants={mobileLinkVariants}
                             className="mt-4 sm:hidden"
                         >
-                            <a 
-                                href="#contact" 
+                            <a
+                                href="#contact"
                                 onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
-                                className="w-full px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-600 transition-all duration-200 flex items-center justify-center gap-2"
+                                className="w-full px-6 py-3 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-all duration-300 shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 border border-white/10"
                             >
                                 <span>Get Started</span>
                                 <svg
